@@ -57,7 +57,7 @@ function authorized(req, res, next){
   
       jwt.verify(token, secret, (error,decodedToken) =>{
         if(error){
-          res.status(401).json({message:'Hacker has been identified.'})
+          res.status(401).json({message:'YOU SHALL NOT PASS HACKER!'})
         }else{
           req.jwt = decodedToken;
           next();
