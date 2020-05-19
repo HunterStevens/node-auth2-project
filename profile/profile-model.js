@@ -13,7 +13,7 @@ function getAll(){
 }
 
 function findBy(filter){
-    return db('profiles').where(filter);
+    return db('profiles').where(filter).orderBy('id');
 }
 
 async function addProfile(newUser){
@@ -21,7 +21,7 @@ async function addProfile(newUser){
         const [id] = await db('profiles').insert(newUser, 'id');
         return getByID(id);
     }catch(err){
-        throw err.message;
+        throw err;
     }
 }
 
